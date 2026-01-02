@@ -1,0 +1,40 @@
+package com.group8.service;
+
+import com.group8.entity.BuyerQueryParam;
+import com.group8.entity.Product;
+
+import java.util.List;
+
+public interface ProductService {
+
+    /**
+     * 供应商创建商品
+     */
+    void add(Product product);
+
+
+    /**
+     * 供应商获取自有商品列表
+     *
+     * @param
+     * @return
+     */
+    List<Product> getSupplierProducts(Long userId, Integer userType);
+
+    /**
+     * 供应商更新商品
+     * @param productId
+     * @param product
+     */
+    void update(Integer productId, Product product);
+
+    /**
+     * 供应商删除商品
+     */
+    void delete(Integer productId);
+
+    /**
+     * 采购商获取所有商品列表,分页查询,可根据keyword模糊搜索关键词,可按商品类目ID筛选
+     */
+    List<Product> getAllProducts(BuyerQueryParam queryParam);
+}
