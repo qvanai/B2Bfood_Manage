@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: B2BFoodManage
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/B2B_food-manage?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+
+mybatis:
+  mapper-locations: classpath:com/group8/mapper/*.xml
+  type-aliases-package: com.group8.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+logging:
+  level:
+    com.group8: info
+    org.springframework.web: info
+    org.mybatis: debug
+  config: classpath:logback.xml
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+jwt:
+  secret: B2BFoodManageSecretKey
+  expiration: 86400000
+
+aliyun:
+  oss:
+    endpoint: oss-cn-hangzhou.aliyuncs.com
+    access-key-id: your-access-key-id
+    access-key-secret: your-access-key-secret
+    bucket-name: your-bucket-name
